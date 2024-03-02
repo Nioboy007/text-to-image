@@ -33,14 +33,17 @@ app = Client(
 @app.on_message(filters.command("start"))
 def start_command(client, message):
     buttons = [
-        [InlineKeyboardButton("About", callback_data="about"),
-         InlineKeyboardButton("Our Bots", callback_data="our_bots"),
-         InlineKeyboardButton("Join Updates Channel", url="https://t.me/botio_devs")]
+        [
+            InlineKeyboardButton("About", callback_data="about"),
+            InlineKeyboardButton("Our Bots", callback_data="our_bots"),
+        ],
+        [InlineKeyboardButton("Join Updates Channel", url="https://t.me/botio_devs")],
     ]
-    
+
     markup = InlineKeyboardMarkup(buttons)
-    
+
     message.reply_text("Welcome! Send me a message, and I'll generate an image based on the input.", reply_markup=markup)
+
 
 @app.on_callback_query()
 def handle_callback_query(client, query):
