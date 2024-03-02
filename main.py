@@ -16,7 +16,7 @@ API_HASH = "f8a1b21a13af154596e2ff5bed164860"
 
 # Hugging Face API details
 API_URL = "https://api-inference.huggingface.co/models/stablediffusionapi/duchaiten-real3d-nsfw-xl"
-HEADERS = {"Authorization": "Bearer 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"}
+HEADERS = {"Authorization": "Bearer YOUR_HUGGING_FACE_API_KEY"}
 
 # Pyrogram Client
 app = Client(
@@ -58,8 +58,8 @@ def process_message(client, message):
         # Attempt to open the image with PIL
         image = Image.open(io.BytesIO(image_bytes))
 
-        # Save the image to the current working directory
-        filename = "downloaded_image.png"
+        # Save the image with the user's input as the filename and .png extension
+        filename = f"{input_text}.png"
         image.save(filename)
 
         # Send the generated image back to the user
