@@ -8,15 +8,23 @@ import requests
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Telegram Bot API Token
+# Telegram Bot API Token, API ID, and API Hash
 API_TOKEN = "6365859811:AAGK5hlLKtLf-RqlaEXngZTWnfSPISerWPI"
+API_ID = "10471716"
+API_HASH = "f8a1b21a13af154596e2ff5bed164860"
+
 
 # Hugging Face API details
 API_URL = "https://api-inference.huggingface.co/models/stablediffusionapi/duchaiten-real3d-nsfw-xl"
-HEADERS = {"Authorization": "Bearer YOUR_HUGGING_FACE_API_KEY"}
+HEADERS = {"Authorization": "Bearer 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"}
 
 # Pyrogram Client
-app = Client("my_bot", bot_token=API_TOKEN)
+app = Client(
+    "my_bot",
+    bot_token=API_TOKEN,
+    api_id=API_ID,
+    api_hash=API_HASH
+)
 
 
 # /start command handler
