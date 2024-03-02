@@ -64,9 +64,11 @@ def handle_callback_query(client, query):
     elif data == "back":
         # Show the initial welcome message with buttons
         buttons = [
-            [InlineKeyboardButton("About", callback_data="about"),
-             InlineKeyboardButton("Our Bots", callback_data="our_bots"),
-             InlineKeyboardButton("Join Updates Channel", url="https://t.me/botio_devs")]
+        [
+            InlineKeyboardButton("About", callback_data="about"),
+            InlineKeyboardButton("Our Bots", callback_data="our_bots"),
+        ],
+        [InlineKeyboardButton("Join Updates Channel", url="https://t.me/botio_devs")],
         ]
         markup = InlineKeyboardMarkup(buttons)
         query.edit_message_text("Welcome! Send me a message, and I'll generate an image based on the input.", reply_markup=markup)
