@@ -64,7 +64,7 @@ def process_message(client, message):
         image.save(filename)
 
         # Send the generated image back to the user
-        message.reply_photo(photo=filename, caption= f"Generated image based on your input: {input_text}.")
+        message.reply_photo(photo=filename, caption= f"Generated image based on your input:\n {input_text}.")
 
     except UnidentifiedImageError as e:
         logger.error(f"Error opening image: {e}")
