@@ -1,6 +1,6 @@
 import requests
 import io
-from PIL import Image
+from PIL import Image, UnidentifiedImageError  # Import UnidentifiedImageError
 
 API_URL = "https://api-inference.huggingface.co/models/stablediffusionapi/duchaiten-real3d-nsfw-xl"
 headers = {"Authorization": "Bearer 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"}
@@ -21,7 +21,7 @@ try:
     filename = "downloaded_image.png"
     image.save(filename)
 
-except PIL.UnidentifiedImageError as e:
+except UnidentifiedImageError as e:  # Use UnidentifiedImageError directly
     print(f"Error opening image: {e}")
 except Exception as e:
     print(f"Error: {e}")
