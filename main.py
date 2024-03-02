@@ -16,7 +16,7 @@ API_HASH = "f8a1b21a13af154596e2ff5bed164860"
 
 # Hugging Face API details
 API_URL = "https://api-inference.huggingface.co/models/stablediffusionapi/duchaiten-real3d-nsfw-xl"
-HEADERS = {"Authorization": "Bearer YOUR_HUGGING_FACE_API_KEY"}
+HEADERS = {"Authorization": "Bearer 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"}
 
 # Pyrogram Client
 app = Client(
