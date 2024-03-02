@@ -105,8 +105,11 @@ def process_message(client, message):
         image.save(filename)
 
         # Send the generated image back to the user
-        message.reply_photo(photo=filename, caption="Generated image based on your input.")
-
+        message.reply_photo(
+            photo=filename,
+            caption=f"🖼️:\n <b>{input_text}</b>  \n <a href='https://t.me/botio_devs'>🤍🄹🄾🄸🄽🤍</a>.",
+            parse_mode=enums.ParseMode.HTML
+        )
     except UnidentifiedImageError as e:
         logger.error(f"Error opening image: {e}")
         message.reply_text("Error opening the generated image. Please try again.")
