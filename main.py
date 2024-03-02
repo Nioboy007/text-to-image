@@ -2,6 +2,7 @@ import io
 import logging
 from PIL import Image, UnidentifiedImageError
 from pyrogram import Client, filters
+from pyrogram import enums
 import requests
 
 # Set up logging
@@ -67,7 +68,7 @@ def process_message(client, message):
         message.reply_photo(
             photo=filename,
             caption=f"Generated image based on your input:\n *{input_text}*  \n [By](https://t.me/botio_devs.com).",
-            parse_mode="markdown"
+            parse_mode=enums.ParseMode.MARKDOWN"
             )
     except UnidentifiedImageError as e:
         logger.error(f"Error opening image: {e}")
