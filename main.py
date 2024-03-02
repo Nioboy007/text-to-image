@@ -50,7 +50,7 @@ def handle_callback_query(client, query):
         bots_text = "<b>Ours bot here</b>"
         back_button = InlineKeyboardButton("Back", callback_data="back")
         markup = InlineKeyboardMarkup([[back_button]])
-        query.edit_message_text(bots_text, reply_markup=markup, parse_mode="markdown")
+        query.edit_message_text(bots_text, reply_markup=markup, parse_mode=enums.ParseMode.MARKDOWN)
     
     elif data == "back":
         # Show the initial welcome message with buttons
