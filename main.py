@@ -1,6 +1,7 @@
 import io
 import logging
 from PIL import Image, UnidentifiedImageError
+from pyrogram import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import Client, filters
 from pyrogram import enums
 import requests
@@ -31,8 +32,44 @@ app = Client(
 # /start command handler
 @app.on_message(filters.command("start"))
 def start_command(client, message):
-    message.reply_text("Welcome! Send me a message, and I'll generate an image based on the input.")
+    buttons = [
+        [InlineKeyboardButton("About", callback_data="about"),
+         InlineKeyboardButton("Our Bots", callback_data="our_bots"),
+         InlineKeyboardButton("Join Updates Channel", url="https://t.me/botio_devs")]
+    ]
+    
+    markup = InlineKeyboardMarkup(buttons)
+    
+    message.reply_text("Welcome! Send me a message, and I'll generate an image based on the input.", reply_markup=markup)
 
+
+@app.on_callback_query()
+def handle_callback_query(client, query):
+    data = query.data
+    
+    if data == "about":
+        # Change the start message to show 'All About' in HTML phrase mode
+        about_text = "<b>All About</b>"
+        back_button = InlineKeyboardButton("Back", callback_data="back")
+        markup = InlineKeyboardMarkup([[back_button]])
+        query.edit_message_text(about_text, reply_markup=markup, parse_mode="html")
+    
+    elif data == "our_bots":
+        # Change the start message to show 'Ours bot here' in HTML phrase mode
+        bots_text = "<b>Ours bot here</b>"
+        back_button = InlineKeyboardButton("Back", callback_data="back")
+        markup = InlineKeyboardMarkup([[back_button]])
+        query.edit_message_text(bots_text, reply_markup=markup, parse_mode="html")
+    
+    elif data == "back":
+        # Show the initial welcome message with buttons
+        buttons = [
+            [InlineKeyboardButton("About", callback_data="about"),
+             InlineKeyboardButton("Our Bots", callback_data="our_bots"),
+             InlineKeyboardButton("Join Updates Channel", url="https://t.me/botio_devs")]
+        ]
+        markup = InlineKeyboardMarkup(buttons)
+        query.edit_message_text("Welcome! Send me a message, and I'll generate an image based on the input.", reply_markup=markup)
 
 # /help command handler
 @app.on_message(filters.command("help"))
