@@ -67,8 +67,8 @@ def process_message(client, message):
         # Send the generated image back to the user
         message.reply_photo(
             photo=filename,
-            caption=f"Generated image based on your input:\n *{input_text}*  \n [By](https://t.me/botio_devs.com).",
-            parse_mode=enums.ParseMode.MARKDOWN
+            caption=f"Generated image based on your input:\n <b>{input_text}</b>  \n [By](https://t.me/botio_devs.com).",
+            parse_mode=enums.ParseMode.HTML
             )
     except UnidentifiedImageError as e:
         logger.error(f"Error opening image: {e}")
