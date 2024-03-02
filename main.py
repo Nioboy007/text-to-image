@@ -46,11 +46,17 @@ def start_command(client, message):
 def handle_callback_query(client, query):
     data = query.data
 
-    if data == "our_bots":
+    if data == "about":
+        about_text = "<b>All About</b>"
+        back_button = InlineKeyboardButton("Back", callback_data="back")
+        markup = InlineKeyboardMarkup([[back_button]])
+        query.edit_message_text(about_text, reply_markup=markup, parse_mode="html")
+    
+    elif data == "our_bots":
         bots_text = "<b>Ours bot here</b>"
         back_button = InlineKeyboardButton("Back", callback_data="back")
         markup = InlineKeyboardMarkup([[back_button]])
-        query.edit_message_text(bots_text, reply_markup=markup)
+        query.edit_message_text(bots_text, reply_markup=markup, parse_mode="html")
     
     elif data == "back":
         # Show the initial welcome message with buttons
@@ -60,8 +66,7 @@ def handle_callback_query(client, query):
              InlineKeyboardButton("Join Updates Channel", url="https://t.me/botio_devs")]
         ]
         markup = InlineKeyboardMarkup(buttons)
-        query.edit_message_text("Welcome! Send me a message, and I'll generate an image based on the input.", reply_markup=markup) 
-
+        query.edit_message_text("Welcome! Send me a message, and I'll generate an image based on the input.", reply_markup=markup)
 # /help command handler
 @app.on_message(filters.command("help"))
 def help_command(client, message):
