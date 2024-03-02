@@ -1,7 +1,7 @@
 import io
 import logging
 from PIL import Image, UnidentifiedImageError
-from pyrogram import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import Client, filters
 from pyrogram import enums
 import requests
