@@ -58,8 +58,8 @@ def process_message(client, message):
         # Attempt to open the image with PIL
         image = Image.open(io.BytesIO(image_bytes))
 
-        # Save the image with the user's input as the filename and .png extension
-        filename = f"{input_text}.png"
+        # Save the image to the current working directory
+        filename = "downloaded_image.png"
         image.save(filename)
 
         # Send the generated image back to the user
