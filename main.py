@@ -46,13 +46,13 @@ def start_command(client, message):
 @app.on_callback_query()
 def handle_callback_query(client, query):
     data = query.data
+
+    elif data == "our_bots":
+       bots_text = "<b>Ours bot here</b>"
+       back_button = InlineKeyboardButton("Back", callback_data="back")
+       markup = InlineKeyboardMarkup([[back_button]])
+       query.edit_message_text(bots_text, reply_markup=markup, parse_mode="markdown")
     
-    if data == "about":
-        # Change the start message to show 'All About' in HTML phrase mode
-        about_text = "<b>All About</b>"
-        back_button = InlineKeyboardButton("Back", callback_data="back")
-        markup = InlineKeyboardMarkup([[back_button]])
-        query.edit_message_text(about_text, reply_markup=markup, parse_mode="markdown")
     
     elif data == "our_bots":
         # Change the start message to show 'Ours bot here' in HTML phrase mode
