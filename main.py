@@ -1,7 +1,6 @@
 import io
 import logging
 from PIL import Image, UnidentifiedImageError
-from telegram import ParseMode
 from pyrogram import Client, filters
 import requests
 
