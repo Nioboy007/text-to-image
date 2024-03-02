@@ -52,14 +52,14 @@ def handle_callback_query(client, query):
         about_text = "<b>All About</b>"
         back_button = InlineKeyboardButton("Back", callback_data="back")
         markup = InlineKeyboardMarkup([[back_button]])
-        query.edit_message_text(about_text, reply_markup=markup, parse_mode="html")
+        query.edit_message_text(about_text, reply_markup=markup, parse_mode="markdown")
     
     elif data == "our_bots":
         # Change the start message to show 'Ours bot here' in HTML phrase mode
         bots_text = "<b>Ours bot here</b>"
         back_button = InlineKeyboardButton("Back", callback_data="back")
         markup = InlineKeyboardMarkup([[back_button]])
-        query.edit_message_text(bots_text, reply_markup=markup, parse_mode="html")
+        query.edit_message_text(about_text, reply_markup=markup, parse_mode="markdown")
     
     elif data == "back":
         # Show the initial welcome message with buttons
