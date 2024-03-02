@@ -59,7 +59,8 @@ def process_message(client, message):
         image = Image.open(io.BytesIO(image_bytes))
 
         # Save the image to the current working directory
-        filename = "downloaded_image.png"
+        # Save the image with the name provided by the user and extension as png
+        filename = f"{input_text[:20].replace(' ', '_')}_generated_image.png"
         image.save(filename)
 
         # Send the generated image back to the user
