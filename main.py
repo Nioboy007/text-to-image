@@ -1,6 +1,7 @@
 import io
 import logging
 from PIL import Image, UnidentifiedImageError
+from telegram import ParseMode
 from pyrogram import Client, filters
 import requests
 
@@ -64,8 +65,11 @@ def process_message(client, message):
         image.save(filename)
 
         # Send the generated image back to the user
-        message.reply_photo(photo=filename, caption= f"Generated image based on your input:\n {input_text}  \n [By](https://t.me/botio_devs.com).")
-
+        message.reply_photo(
+            photo=filename,
+             caption=f"Generated image based on your input:\n *{input_text}*  \n [By](https://t.me/botio_devs.com).",
+             parse_mode="MarkdownV2"
+            )
     except UnidentifiedImageError as e:
         logger.error(f"Error opening image: {e}")
         message.reply_text("Error opening the generated image. Please try again.")
