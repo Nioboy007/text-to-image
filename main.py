@@ -50,7 +50,7 @@ def handle_callback_query(client, query):
     data = query.data
 
     if data == "about":
-        about_text = "<b>All About</b>"
+        about_text = "<b>︵‿︵‿︵‿୨ ꪑꫀ ୧‿︵‿︵‿︵\nNᴀᴍᴇ: [Iᴍᴀɢᴇ Gᴇɴᴇʀᴀᴛᴏʀ](https://t.me/Image_l_GeneratorBot)\nAɪᴍ:    Iᴍᴀɢɪғʏ Tʜᴇ Dʀᴇᴀᴍs\nB'Dᴀʏ:  𝟶𝟹-𝟹𝟶-𝟸𝟶𝟸𝟺\nFᴀᴛʜᴇʀ: [Aᴘᴘᴜs](https://t.me/APPUZ_001)\nDNA:    Pʏʀᴏɢʀᴀᴍ ᴠ𝟸\n‿︵‿︵‿︵‿︵‿︵‿︵‿︵‿︵</b>"
         back_button = InlineKeyboardButton("Back", callback_data="back")
         markup = InlineKeyboardMarkup([[back_button]])
         query.edit_message_text(about_text, reply_markup=markup, parse_mode=None)
@@ -78,8 +78,7 @@ def handle_callback_query(client, query):
 @app.on_message(filters.command("help"))
 def help_command(client, message):
     message.reply_text(
-        "Send me a message, and I'll generate an image based on the input. "
-        "Make sure to keep your input concise for better results."
+        "Yᴏᴜ Cᴀɴ Gᴇɴᴇʀᴀᴛᴇ Iᴍᴀɢᴇs ᴡɪᴛʜ ᴍᴇ\nGᴏᴏᴅ ʟᴏɴɢ ᴘʀᴏᴍᴘᴛs ᴍᴀᴋᴇ ɢᴏᴏᴅ ɪᴍᴀɢᴇs\n\n\nDᴜᴇ ᴛᴏ ᴛʜɪs ɪs ᴀ ғʀᴇᴇ sᴇʀᴠɪᴄᴇ ᴏғᴛᴇɴ ᴇʀʀᴏʀs ᴀʀᴇ sᴇᴇɴ.\nDᴏɴ'ᴛ ᴡᴏʀʀʏ, Eᴠᴇʀʏᴛʜɪɴɢ Is ғɪɴᴇ.....\nOɴ ᴇʀʀᴏʀs Wᴀɪᴛ ᴜᴘᴛᴏ 𝟻 ᴍɪɴ. ʙᴇғᴏʀᴇ ʏᴏᴜʀ ɴᴇxᴛ ᴘʀᴏᴍᴘᴛ.\n\nDᴏɴᴛ Fᴏʀɢᴇᴛ ᴛʜᴀᴛ Iᴛs ᴀ ғʀᴇᴇ Sᴇʀᴠɪᴄᴇ......\nAɴᴅ ᴇᴠᴇɴ ʙᴏᴛs ɴᴇᴇᴅ Mᴏɴᴇʏ ғᴏʀ Fᴏᴏᴅ..\n𝙹𝚘𝚒𝚗 𝙼𝚢 𝚄𝚙𝚍𝚊𝚝𝚎𝚜 𝙲𝚑𝚊𝚗𝚗𝚎𝚕 𝚃𝚘 𝚑𝚎𝚕𝚙 💵"
     )
 
 
@@ -107,7 +106,7 @@ def process_message(client, message):
         # Send the generated image back to the user
         message.reply_photo(
             photo=filename,
-            caption=f"🖼️:\n <b>{input_text}</b>  \n <a href='https://t.me/botio_devs'>🤍🄹🄾🄸🄽🤍</a>.",
+            caption=f"🖼️: <b>{input_text}</b>  \n\n <a href='https://t.me/botio_devs'>🤍🄹🄾🄸🄽🤍</a>.",
             parse_mode=enums.ParseMode.HTML
         )
     except UnidentifiedImageError as e:
