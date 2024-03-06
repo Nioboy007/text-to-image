@@ -1,4 +1,5 @@
 import io
+import os
 import logging
 from PIL import Image, UnidentifiedImageError
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
