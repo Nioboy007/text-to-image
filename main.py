@@ -109,6 +109,7 @@ def process_message(client, message):
             caption=f"🖼️: <b>{input_text}</b>  \n\n <a href='https://t.me/botio_devs'>🤍🄹🄾🄸🄽🤍</a>.",
             parse_mode=enums.ParseMode.HTML
         )
+        os.remove(filename)
     except UnidentifiedImageError as e:
         logger.error(f"Error opening image: {e}")
         message.reply_text("Error opening the generated image. Please try again.")
